@@ -135,10 +135,10 @@ bot.on('chat', function(username, message) {
                 bot.chat('No more blocks to mine below.');
                 break;
             }
-        }
-    else if (message === 'equip') {
+        }}else if (message === 'equip') {
         bot.chat('Equipping armor...');
         bot.armorManager.equipAll();
     }          
-    }
-});
+        }
+
+);
