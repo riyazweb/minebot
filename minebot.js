@@ -3,6 +3,8 @@ const pathfinder = require('mineflayer-pathfinder').pathfinder;
 const armorManager = require('mineflayer-armor-manager');
 const Movements = require('mineflayer-pathfinder').Movements;
 const { GoalNear, GoalBlock } = require('mineflayer-pathfinder').goals;
+const pvp = require('mineflayer-pvp').plugin
+
 
 const bot = mineflayer.createBot({
     host: 'RIYAZISNOOB.aternos.me', // Replace with the server hostname or IP
@@ -12,6 +14,8 @@ const bot = mineflayer.createBot({
 
 
 bot.loadPlugin(pathfinder);
+
+bot.loadPlugin(pvp)
 bot.loadPlugin(armorManager); // Load the armor manager plugin
 
 let defaultMove;
@@ -138,7 +142,15 @@ bot.on('chat', function(username, message) {
         }}else if (message === 'equip') {
         bot.chat('Equipping armor...');
         bot.armorManager.equipAll();
-    }          
+    }    
+    else if (message === 'fight me') {
+        if (!target) {
+            bot.chat("I can't see you.");
+            return;
+        }
+
+        bot.pvp.attack(target);
+    }      
         }
 
 );
