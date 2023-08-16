@@ -1,5 +1,6 @@
 const mineflayer = require('mineflayer');
 const pathfinder = require('mineflayer-pathfinder').pathfinder;
+const armorManager = require('mineflayer-armor-manager');
 const Movements = require('mineflayer-pathfinder').Movements;
 const { GoalNear, GoalBlock } = require('mineflayer-pathfinder').goals;
 
@@ -9,13 +10,16 @@ const bot = mineflayer.createBot({
     username: 'Player' // Replace with your bot's username
 });
 
+
 bot.loadPlugin(pathfinder);
+bot.loadPlugin(armorManager); // Load the armor manager plugin
 
 let defaultMove;
 let targetPosition = null;
 
 bot.once('spawn', () => {
     defaultMove = new Movements(bot);
+    bot.armorManager.equipAll(); // Equip armor when the bot spawns
 });
 
 bot.on('chat', function(username, message) {
@@ -132,5 +136,9 @@ bot.on('chat', function(username, message) {
                 break;
             }
         }
+    else if (message === 'equip') {
+        bot.chat('Equipping armor...');
+        bot.armorManager.equipAll();
+    }          
     }
 });
