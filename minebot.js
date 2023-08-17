@@ -9,7 +9,7 @@ const pvp = require('mineflayer-pvp').plugin
 const bot = mineflayer.createBot({
     host: 'RIYAZISNOOB.aternos.me', // Replace with the server hostname or IP
     port: 25565, // Replace with the server port
-    username: 'Player' // Replace with your bot's username
+    username: 'baebibot' // Replace with your bot's username
 });
 
 
