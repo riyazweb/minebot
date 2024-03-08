@@ -45,12 +45,12 @@ bot.on('chat', function(username, message) {
         bot.chat('Stopped');
     } else if (message === 'goto') {
         bot.chat('Moving to target coordinates...');
-        targetPosition = new GoalBlock(-888, 65, 406);
+        targetPosition = new GoalBlock(-992, 65, 329);
         bot.pathfinder.setMovements(defaultMove);
         bot.pathfinder.setGoal(targetPosition);
     } else if (message === 'sleep') {
         bot.chat('Going to target coordinates before sleeping...');
-        targetPosition = new GoalBlock(-903, 65, 400); // Replace with your desired coordinates
+        targetPosition = new GoalBlock(-992, 65, 329); // Replace with your desired coordinates
         bot.pathfinder.setMovements(defaultMove);
         bot.pathfinder.setGoal(targetPosition);
 
